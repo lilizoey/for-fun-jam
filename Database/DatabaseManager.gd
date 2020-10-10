@@ -1,3 +1,5 @@
+class_name DatabaseManager
+
 extends Node
 
 const ingredients: Dictionary = {}
