@@ -19,3 +19,13 @@ func setIngredient(ingredient: Ingredient):
 	
 	ghost.texture = ingredient.texture
 	currentIngredient = ingredient
+
+func _ready():
+	if get_tree().current_scene.name != "DragAndDropper":
+		return
+	
+	var databaseManager: DatabaseManager = \
+		load("res://Database/DatabaseManager.tscn").instance()
+	add_child(databaseManager)
+	var ingredient: Ingredient = databaseManager.ingredients.values()[0];
+	setIngredient(ingredient)
