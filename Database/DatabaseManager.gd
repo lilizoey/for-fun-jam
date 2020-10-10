@@ -11,14 +11,12 @@ func _ready():
 	init_ingredients()
 	init_recipes()
 	
-	var i = 0
 	for ingredient in ingredients.values():
 		if not ingredient:
 			continue
 		add_child(ingredient)
-		ingredient.position = Vector2(i * 16, 100)
+		ingredient.position = Vector2((ingredient.index % 8) * 18 + 16, (ingredient.index / 8) * 18 + 16)
 		print(ingredient.get_real_name(DatabaseConstants.NameType.NORMAL), " ", ingredient.texture.region)
-		i += 1
 
 func init_ingredients():
 	var file = File.new()
@@ -33,7 +31,8 @@ func init_ingredients():
 		if csv.size() >= 5:
 			var ingredient_instance: Ingredient = ingredient_scene.instance()
 			ingredients[csv[0]] = ingredient_instance
-			ingredient_instance.initialize(index, csv[1], csv[2], csv[3])
+			ingredient_instance.initialize(index, csv[0], csv[1], csv[2])
+		
 		index += 1
 	file.close()
 
