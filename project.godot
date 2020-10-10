@@ -8,15 +8,46 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Reference",
+"class": "BookEntry",
+"language": "GDScript",
+"path": "res://Database/BookEntry.gd"
+}, {
+"base": "Reference",
+"class": "Ingredient",
+"language": "GDScript",
+"path": "res://Database/Ingredient.gd"
+}, {
+"base": "Reference",
+"class": "Potion",
+"language": "GDScript",
+"path": "res://Database/Potion.gd"
+}, {
+"base": "Reference",
+"class": "Recipe",
+"language": "GDScript",
+"path": "res://Database/Recipe.gd"
+} ]
 _global_script_class_icons={
-
+"BookEntry": "",
+"Ingredient": "",
+"Potion": "",
+"Recipe": ""
 }
 
 [application]
 
 config/name="for-fun-jam"
-config/icon="res://icon.png"
+
+[autoload]
+
+DatabaseConstants="*res://Database/DatabaseConstants.gd"
+
+[display]
+
+window/size/width=1920
+window/size/height=1080
 
 [rendering]
 
