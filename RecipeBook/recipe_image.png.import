@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ghost_test_image.png-6159512e1443f15c2e5a4d572cb17489.stex"
+path="res://.import/recipe_image.png-f139829e7802bb8109f35bb404ce5cef.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://DragAndDrop/Ghost/ghost_test_image.png"
-dest_files=[ "res://.import/ghost_test_image.png-6159512e1443f15c2e5a4d572cb17489.stex" ]
+source_file="res://RecipeBook/recipe_image.png"
+dest_files=[ "res://.import/recipe_image.png-f139829e7802bb8109f35bb404ce5cef.stex" ]
 
 [params]
 

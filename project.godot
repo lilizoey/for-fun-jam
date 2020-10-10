@@ -12,9 +12,9 @@ _global_script_classes=[ {
 "base": "Reference",
 "class": "BookEntry",
 "language": "GDScript",
-"path": "res://Database/BookEntry.gd"
+"path": "res://RecipeBook/BookEntry.gd"
 }, {
-"base": "Reference",
+"base": "Sprite",
 "class": "Ingredient",
 "language": "GDScript",
 "path": "res://Database/Ingredient.gd"
@@ -47,8 +47,10 @@ DatabaseConstants="*res://Database/DatabaseConstants.gd"
 
 [display]
 
-window/size/width=1920
-window/size/height=1080
+window/size/width=256
+window/size/height=256
+window/size/test_width=512
+window/size/test_height=512
 
 [rendering]
 

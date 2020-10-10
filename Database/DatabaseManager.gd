@@ -3,19 +3,25 @@ extends Node
 const ingredients: Dictionary = {}
 const potions: Dictionary = {}
 const recipes: Dictionary = {}
+const ingredient_scene: PackedScene = preload("res://Database/Ingredient.tscn")
 
 func _ready():
 	init_ingredients()
 	init_recipes()
 	
-	for recipe in recipes.values():
-		if not recipe:
+	var i = 0
+	for ingredient in ingredients.values():
+		if not ingredient:
 			continue
-		print(recipe.name, ": ", recipe.ingredient1, ", ", recipe.ingredient2, ", ", recipe.ingredient3)
+		add_child(ingredient)
+		ingredient.position = Vector2(i * 16, 100)
+		print(ingredient.get_real_name(DatabaseConstants.NameType.NORMAL), " ", ingredient.texture.region)
+		i += 1
 
 func init_ingredients():
 	var file = File.new()
 	file.open("res://Database/Witchstuff - Ingredients.csv", file.READ)
+	var index = 0
 	while !file.eof_reached():
 		var csv = file.get_csv_line()
 		if csv[0] == "Actual Ingredients":
@@ -23,7 +29,10 @@ func init_ingredients():
 		if csv[0] == "END":
 			break
 		if csv.size() >= 5:
-			ingredients[csv[0]] = Ingredient.new(csv[0],csv[1],csv[2])
+			var ingredient_instance: Ingredient = ingredient_scene.instance()
+			ingredients[csv[0]] = ingredient_instance
+			ingredient_instance.initialize(index, csv[1], csv[2], csv[3])
+		index += 1
 	file.close()
 
 func init_recipes():
