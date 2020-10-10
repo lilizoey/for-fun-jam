@@ -1,7 +1,5 @@
 class_name Ingredient
 
-
-
 var name: String
 var witch_name: String
 var scientific_name: String
